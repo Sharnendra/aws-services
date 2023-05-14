@@ -1,5 +1,10 @@
 name: Build a Docker image and Push it to ACR
 
+secrets:
+  ACR_ENDPOINT: awsservicescontainers.azurecr.io
+  ACR_USERNAME: AWSServicesContainers
+  ACR_PASSWORD: 8hpSdjpvvoQlDWo5KpZtbABr6IrKEolDVtcXTTFvDL+ACRBE/Pib
+
 on:
   push:
     branches: [ main ]
