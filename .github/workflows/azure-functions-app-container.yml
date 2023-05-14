@@ -1,10 +1,5 @@
 name: Build a Docker image and Push it to ACR
 
-secrets:
-  ACR_ENDPOINT: awsservicescontainers.azurecr.io
-  ACR_USERNAME: AWSServicesContainers
-  ACR_PASSWORD: 8hpSdjpvvoQlDWo5KpZtbABr6IrKEolDVtcXTTFvDL+ACRBE/Pib
-
 on:
   push:
     branches: [ main ]
@@ -20,9 +15,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: azure/docker-login@v1
         with:
-          login-server: ${{ secrets.ACR_ENDPOINT }}
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
+          login-server: awsservicescontainers.azurecr.io
+          username: AWSServicesContainers
+          password: 8hpSdjpvvoQlDWo5KpZtbABr6IrKEolDVtcXTTFvDL+ACRBE/Pib
       - run: |
-          docker build . -t ${{ secrets.ACR_ENDPOINT }}/aws-services-resource-group:${{ github.sha }}
-          docker push ${{ secrets.ACR_ENDPOINT }}/aws-services-resource-group:${{ github.sha }}
+          docker build . -t awsservicescontainers.azurecr.io/aws-services-resource-group:${{ github.sha }}
+          docker push awsservicescontainers.azurecr.io/aws-services-resource-group:${{ github.sha }}
