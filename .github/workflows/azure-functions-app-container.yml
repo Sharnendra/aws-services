@@ -20,4 +20,4 @@ jobs:
           password: 8hpSdjpvvoQlDWo5KpZtbABr6IrKEolDVtcXTTFvDL+ACRBE/Pib
       - run: |
           docker build . -t awsservicescontainers.azurecr.io/aws-services-resource-group:${{ github.sha }}
-          docker push awsservicescontainers.azurecr.io/aws-services-resource-group:${{ github.sha }}
+          docker push awsservicescontainers.azurecr.io/aws-services-resource-group:latest
