@@ -1,0 +1,23 @@
+name: Build a Docker image and Push it to ACR
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: azure/docker-login@v1
+        with:
+          login-server: awsservicescontainers.azurecr.io
+          username: AWSServicesContainers
+          password: 8hpSdjpvvoQlDWo5KpZtbABr6IrKEolDVtcXTTFvDL+ACRBE/Pib
+      - run: |
+          docker build . -t awsservicescontainers.azurecr.io/aws-services-resource-group:develop-${{ github.sha }}
+          docker push awsservicescontainers.azurecr.io/aws-services-resource-group:develop-${{ github.sha }}
