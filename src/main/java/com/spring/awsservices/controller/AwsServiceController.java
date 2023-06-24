@@ -8,7 +8,7 @@ public class AwsServiceController {
 
     @GetMapping("/aws-service/isActive")
     public String isActive() {
-        return "TRUE";
+        return "TRUE application is active.";
     }
 
 }
